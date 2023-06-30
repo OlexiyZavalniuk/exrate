@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable, catchError } from 'rxjs';
+import { GetExRateService } from 'src/app/services/get-exrate-service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor() {}
+  constructor(private service: GetExRateService) {}
+
+  usd: number = 0;
+  eur: number = 0;
+
+  ngOnInit() {
+    this.service
+      .getCourses('USD', 'UAH')
+      .pipe(
+        catchError((error: any) => {
+          console.log(error);
+          return [];
+        })
+      )
+      .subscribe((value: number) => {
+        this.usd = value;
+      });
+
+    this.service
+      .getCourses('EUR', 'UAH')
+      .pipe(
+        catchError((error: any) => {
+          console.log(error);
+          return [];
+        })
+      )
+      .subscribe((value: number) => {
+        this.eur = value;
+      });
+  }
 }
