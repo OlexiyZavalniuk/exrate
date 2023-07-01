@@ -1,22 +1,24 @@
-<select name="code1" #code1 (change)="onSelected1(code1.value)">
-  <option value="USD" selected>USD</option>
-  <option value="EUR">EUR</option>
-  <option value="UAH">UAH</option>
-</select>
-<input
-  type="number"
-  name="value1"
-  value="{{ value1 }}"
-  (keyup)="Value1Change($event)"
-/>
-<select name="code2" #code2 (change)="onSelected2(code2.value)">
-  <option value="USD">USD</option>
-  <option value="EUR">EUR</option>
-  <option value="UAH" selected>UAH</option>
-</select>
-<input
-  type="number"
-  name="value2"
-  value="{{ value2 }}"
-  (keyup)="Value2Change($event)"
-/>
+<div id="converter_block">
+  <select name="code1" #code1 (change)="onSelected1(code1.value)">
+    <option value="USD" selected>USD</option>
+    <option value="EUR">EUR</option>
+    <option value="UAH">UAH</option>
+  </select>
+  <input
+    type="number"
+    name="value1"
+    value="{{ value1 }}"
+    (keyup)="Value1Change($event)"
+  />
+  <select name="code2" #code2 (change)="onSelected2(code2.value)">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="UAH" selected>UAH</option>
+  </select>
+  <input
+    type="number"
+    name="value2"
+    value="{{ value2 }}"
+    (keyup)="Value2Change($event)"
+  />
+</div>

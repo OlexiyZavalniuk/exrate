@@ -39,12 +39,12 @@ export class ConverterComponent {
 
   Value1Change(event: any) {
     this.value1 = event.target.value;
-    this.value2 = this.value1 * this.k;
+    this.value2 = Math.round(100 * this.value1 * this.k) / 100;
   }
 
   Value2Change(event: any) {
     this.value2 = event.target.value;
-    this.value1 = this.value2 / this.k;
+    this.value1 = Math.round((100 * this.value2) / this.k) / 100;
   }
 
   getK() {
